@@ -1,117 +1,161 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Basani Karthik Portfolio</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-  <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,600,700" rel="stylesheet">
-  <link rel="stylesheet" href="css/bootstrap.min.css">
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Poppins:100,200,300,400,500,600,700,800,900" rel="stylesheet">
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="css/open-iconic-bootstrap.min.css">
+  <link rel="stylesheet" href="css/animate.css">
+  <link rel="stylesheet" href="css/owl.carousel.min.css">
+  <link rel="stylesheet" href="css/owl.theme.default.min.css">
+  <link rel="stylesheet" href="css/magnific-popup.css">
+  <link rel="stylesheet" href="css/aos.css">
+  <link rel="stylesheet" href="css/ionicons.min.css">
+  <link rel="stylesheet" href="css/flaticon.css">
+  <link rel="stylesheet" href="css/icomoon.css">
   <link rel="stylesheet" href="css/style.css">
 
   <style>
-    body {font-family: 'Poppins', sans-serif;}
-    .hero {height: 100vh; display: flex; align-items: center; justify-content: center; background: #111; color: #fff; text-align: center;}
-    .btn {margin: 5px;}
-    .project-card {border: 1px solid #ddd; padding: 15px; border-radius: 10px; margin-bottom: 20px;}
+    .about-mf .box-shadow-full {
+      padding-top: 4rem;
+      padding-bottom: 4rem;
+    }
+
+    .about-mf .about-img {
+      margin-bottom: 2rem;
+    }
+
+    .about-mf .about-img img {
+      margin-left: 10px;
+    }
+
+    .skill-mf .progress {
+      margin: .5rem 0 1.2rem 0;
+      border-radius: 0;
+      height: .7rem;
+    }
+
+    .skill-mf .progress .progress-bar {
+      height: .7rem;
+      background-color: #ffbd39;
+    }
+
+    #typing-animation {
+      font-size: 30px;
+      font-weight: bold;
+      color: #fff;
+      overflow: hidden;
+      white-space: nowrap;
+      animation: typing 3s steps(20, end) infinite;
+    }
+
+    @keyframes typing {
+      from { width: 0; }
+      to { width: 100%; }
+    }
+
+    .zoom-effect {
+      overflow: hidden;
+      transition: transform 0.3s ease-out;
+    }
+
+    .zoom-effect:hover {
+      transform: scale(1.1);
+    }
   </style>
 </head>
 
-<body>
+<body data-spy="scroll" data-target=".site-navbar-target" data-offset="300">
 
-<!-- HERO -->
-<section class="hero">
-  <div>
-    <h1>Hi, I'm Basani Karthik</h1>
-    <h3 id="typing"></h3>
-    <p>Passionate DevOps Engineer</p>
-    <a href="https://github.com/KarNavAarya" target="_blank" class="btn btn-primary">GitHub</a>
-    <a href="https://www.linkedin.com/in/basani-karthik/" target="_blank" class="btn btn-outline-light">LinkedIn</a>
+<!-- NAVBAR -->
+<nav class="navbar navbar-expand-lg navbar-dark ftco_navbar site-navbar-target">
+  <div class="container">
+    <a class="navbar-brand" href="index.html">Basani Karthik</a>
+  </div>
+</nav>
+
+<!-- HOME -->
+<section id="home-section" class="hero">
+  <div class="container">
+    <h1>I'm Basani Karthik</h1>
+    <span id="typing-animation"></span>
+
+    <script>
+      const typingElement = document.getElementById('typing-animation');
+      const texts = ['DevOps Engineer', 'Blogger'];
+
+      function type(text, i = 0) {
+        if (i < text.length) {
+          typingElement.textContent += text[i];
+          setTimeout(() => type(text, i + 1), 150);
+        } else {
+          setTimeout(() => {
+            typingElement.textContent = '';
+            type(texts[(texts.indexOf(text) + 1) % texts.length]);
+          }, 1000);
+        }
+      }
+      type(texts[0]);
+    </script>
   </div>
 </section>
 
 <!-- ABOUT -->
-<section class="container mt-5">
-  <h2>About Me</h2>
-  <p>
-    DevOps Engineer with hands-on experience in CI/CD, Docker, Kubernetes, AWS and Terraform.
-    Strong focus on automation, performance and DevSecOps practices.
-  </p>
-
-  <ul>
-    <li><b>Experience:</b> Fresher / Hands-on Projects</li>
-    <li><b>Location:</b> Hyderabad</li>
-    <li><b>Skills:</b> AWS, Docker, Kubernetes, Jenkins, Terraform</li>
-  </ul>
+<section id="about-section">
+  <div class="container">
+    <h2>About Me</h2>
+    <p>
+      I am a DevOps Engineer with experience in CI/CD, AWS, Docker, Kubernetes,
+      and Terraform. Passionate about automation and scalable systems.
+    </p>
+  </div>
 </section>
 
 <!-- PROJECTS -->
-<section class="container mt-5">
-  <h2>Projects</h2>
+<section id="project-section">
+  <div class="container">
+    <h2>Projects</h2>
 
-  <div class="row">
-
-    <div class="col-md-4">
-      <div class="project-card">
-        <h4>CI/CD Pipeline</h4>
-        <p>Jenkins + Docker automated deployment</p>
-      </div>
+    <div>
+      <h3>Jenkins CI/CD Pipeline</h3>
+      <p>Automated build & deployment using Jenkins, Docker, Git.</p>
     </div>
 
-    <div class="col-md-4">
-      <div class="project-card">
-        <h4>SonarQube Integration</h4>
-        <p>Code quality automation using Jenkins</p>
-      </div>
-    </div>
-
-    <div class="col-md-4">
-      <div class="project-card">
-        <h4>Docker Flask App</h4>
-        <p>Containerized Python Flask app</p>
-      </div>
-    </div>
-
-    <div class="col-md-4">
-      <div class="project-card">
-        <h4>DevSecOps Pipeline</h4>
-        <p>Integrated Trivy, OWASP, SonarQube</p>
-      </div>
+    <div>
+      <h3>SonarQube Integration</h3>
+      <p>Code quality analysis using Jenkins + SonarQube.</p>
     </div>
 
   </div>
 </section>
 
 <!-- CONTACT -->
-<section class="container mt-5 mb-5">
-  <h2>Contact</h2>
-  <p>Email: basanikarthik1317@gmail.com</p>
-  <p>Phone: +91 8555807282</p>
-  <a href="https://drive.google.com/uc?export=download&id=16tUcxb1WrqnThpx9HdYhkeDhC9WIxA2J" target="_blank" class="btn btn-success">Download Resume</a>
+<section id="contact-section">
+  <div class="container">
+    <h2>Contact</h2>
+
+    <p>Email: basanikarthik1317@gmail.com</p>
+    <p>Phone: +91 8555807282</p>
+
+    <p>
+      <a href="https://drive.google.com/uc?export=download&id=16tUcxb1WrqnThpx9HdYhkeDhC9WIxA2J" target="_blank">
+        Download Resume
+      </a>
+    </p>
+  </div>
 </section>
 
-<script>
-const texts = ["DevOps Engineer", "AWS | Docker | Kubernetes"];
-let i = 0, j = 0;
-const el = document.getElementById("typing");
-
-function type() {
-  if (j < texts[i].length) {
-    el.innerHTML += texts[i].charAt(j);
-    j++;
-    setTimeout(type, 100);
-  } else {
-    setTimeout(() => {
-      el.innerHTML = "";
-      j = 0;
-      i = (i + 1) % texts.length;
-      type();
-    }, 1000);
-  }
-}
-
-type();
-</script>
+<!-- FOOTER -->
+<footer>
+  <div class="container text-center">
+    <p>© 2026 Basani Karthik</p>
+  </div>
+</footer>
 
 </body>
 </html>
